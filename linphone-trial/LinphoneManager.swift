@@ -2,6 +2,17 @@ import Foundation
 
 var answerCall: Bool = false
 
+extension Notification.Name {
+    
+    static let ABIncomingCallNotification = Notification.Name("ABIncomingCallNotification")
+    static let ABOutgoingCallInitNotification = Notification.Name("ABOutgoingCallInitNotification")
+    static let ABOutgoingCallProgressNotification = Notification.Name("ABOutgoingCallProgressNotification")
+    static let ReloadMessages = Notification.Name("ReloadMessages")
+    static let ShowPopUpView = Notification.Name("ShowPopUpView")
+    static let ReloadFeeds = NSNotification.Name("feed")
+    static let ReloadName = NSNotification.Name("name")
+}
+
 struct theLinphone {
     static var lc: OpaquePointer?
     static var lct: LinphoneCoreVTable?
@@ -107,13 +118,13 @@ class LinphoneManager {
     // This is the start point to know how linphone library works.
     //
     func demo() {
-//        makeCall()
+        makeCall()
 //        autoPickImcomingCall()
         idle()
     }
     
     func makeCall(){
-        let calleeAccount = "0702552520"
+        let calleeAccount = "9109314291645"
         
         guard let _ = setIdentify() else {
             print("no identity")
@@ -148,15 +159,11 @@ class LinphoneManager {
         
         // Reference: http://www.linphone.org/docs/liblinphone/group__registration__tutorials.html
         
-        let path = Bundle.main.path(forResource: "Secret", ofType: "plist")
-        let dict = NSDictionary(contentsOfFile: path!)
-        let account = dict?.object(forKey: "account") as! String
-        let password = dict?.object(forKey: "password") as! String
-        let domain = dict?.object(forKey: "domain") as! String
         
-        let identity = "sip:" + account + "@" + domain;
+        let domain = "sip3.biyah.pk:7000"
         
-
+        let identity = "sip:9109799432317@" + domain;
+        
         /*create proxy config*/
         let proxy_cfg = linphone_proxy_config_new();
         
@@ -168,7 +175,7 @@ class LinphoneManager {
             return nil
         }
         
-        let info=linphone_auth_info_new(linphone_address_get_username(from), nil, password, nil, nil, nil); /*create authentication structure from identity*/
+        let info=linphone_auth_info_new(linphone_address_get_username(from), nil, "password", nil, nil, nil); /*create authentication structure from identity*/
         linphone_core_add_auth_info(theLinphone.lc, info); /*add authentication info to LinphoneCore*/
         
         // configure proxy entries

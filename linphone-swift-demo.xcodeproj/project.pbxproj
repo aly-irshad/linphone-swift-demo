@@ -492,6 +492,7 @@
 				TargetAttributes = {
 					A99663601D06F877003B5EEE = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 43TSXYRK56;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -673,6 +674,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 43TSXYRK56;
 				INFOPLIST_FILE = "linphone-trial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -680,7 +682,7 @@
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wiadvance.linphone-swift-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ab.linphone-swift-demo";
 				PRODUCT_NAME = "linphone-swift-demo";
 				SWIFT_OBJC_BRIDGING_HEADER = "linphone-swift-demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -695,6 +697,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 43TSXYRK56;
 				INFOPLIST_FILE = "linphone-trial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -702,7 +705,7 @@
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wiadvance.linphone-swift-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ab.linphone-swift-demo";
 				PRODUCT_NAME = "linphone-swift-demo";
 				SWIFT_OBJC_BRIDGING_HEADER = "linphone-swift-demo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

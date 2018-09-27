@@ -2,17 +2,6 @@ import Foundation
 
 var answerCall: Bool = false
 
-extension Notification.Name {
-    
-    static let ABIncomingCallNotification = Notification.Name("ABIncomingCallNotification")
-    static let ABOutgoingCallInitNotification = Notification.Name("ABOutgoingCallInitNotification")
-    static let ABOutgoingCallProgressNotification = Notification.Name("ABOutgoingCallProgressNotification")
-    static let ReloadMessages = Notification.Name("ReloadMessages")
-    static let ShowPopUpView = Notification.Name("ShowPopUpView")
-    static let ReloadFeeds = NSNotification.Name("feed")
-    static let ReloadName = NSNotification.Name("name")
-}
-
 struct theLinphone {
     static var lc: OpaquePointer?
     static var lct: LinphoneCoreVTable?
@@ -41,7 +30,7 @@ let registrationStateChanged: LinphoneCoreRegistrationStateChangedCb  = {
     default:
         NSLog("Unkown registration state")
     }
-} as LinphoneCoreRegistrationStateChangedCb
+    } as LinphoneCoreRegistrationStateChangedCb
 
 let callStateChanged: LinphoneCoreCallStateChangedCb = {
     (lc: Optional<OpaquePointer>, call: Optional<OpaquePointer>, callSate: LinphoneCallState,  message: Optional<UnsafePointer<Int8>>) in
@@ -74,7 +63,7 @@ class LinphoneManager {
     init() {
         
         theLinphone.lct = LinphoneCoreVTable()
-
+        
         
         // Enable debug log to stdout
         linphone_core_set_log_file(nil)
@@ -97,7 +86,7 @@ class LinphoneManager {
         // Set ring asset
         let ringbackPath = URL(fileURLWithPath: Bundle.main.bundlePath).appendingPathComponent("/ringback.wav").absoluteString
         linphone_core_set_ringback(theLinphone.lc, ringbackPath)
-
+        
         let localRing = URL(fileURLWithPath: Bundle.main.bundlePath).appendingPathComponent("/toy-mono.wav").absoluteString
         linphone_core_set_ring(theLinphone.lc, localRing)
     }
@@ -118,8 +107,8 @@ class LinphoneManager {
     // This is the start point to know how linphone library works.
     //
     func demo() {
-        makeCall()
-//        autoPickImcomingCall()
+         //       makeCall()
+        //        autoPickImcomingCall()
         idle()
     }
     
@@ -132,7 +121,7 @@ class LinphoneManager {
         }
         linphone_core_invite(theLinphone.lc, calleeAccount)
         setTimer()
-//        shutdown()
+        //        shutdown()
     }
     
     func receiveCall(){
@@ -142,7 +131,7 @@ class LinphoneManager {
         }
         register(proxyConfig)
         setTimer()
-//        shutdown()
+        //        shutdown()
     }
     
     func idle(){
@@ -152,7 +141,7 @@ class LinphoneManager {
         }
         register(proxyConfig)
         setTimer()
-//        shutdown()
+        //        shutdown()
     }
     
     func setIdentify() -> OpaquePointer? {
@@ -160,9 +149,12 @@ class LinphoneManager {
         // Reference: http://www.linphone.org/docs/liblinphone/group__registration__tutorials.html
         
         
+        let account = "9109799432317"
+        let password = "password"
         let domain = "sip3.biyah.pk:7000"
         
-        let identity = "sip:9109799432317@" + domain;
+        let identity = "sip:" + account + "@" + domain;
+        print(identity)
         
         /*create proxy config*/
         let proxy_cfg = linphone_proxy_config_new();
@@ -175,7 +167,7 @@ class LinphoneManager {
             return nil
         }
         
-        let info=linphone_auth_info_new(linphone_address_get_username(from), nil, "password", nil, nil, nil); /*create authentication structure from identity*/
+        let info=linphone_auth_info_new(linphone_address_get_username(from), nil, password, nil, nil, nil); /*create authentication structure from identity*/
         linphone_core_add_auth_info(theLinphone.lc, info); /*add authentication info to LinphoneCore*/
         
         // configure proxy entries

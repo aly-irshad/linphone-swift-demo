@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,22 +22,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m7H-1o-YAG">
-                                <rect key="frame" x="72" y="225" width="231" height="217"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">1. Remember to modify Secret.plist to your account
-
-2. Modify demo() in LinphoneManager.swift to test different scenario like call out or pick an incoming call.
-
-3. After launch app, look your text console to get the linphone output details.
-</string>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9109314291645" borderStyle="roundedRect" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4I1-jY-WFa">
+                                <rect key="frame" x="26" y="60" width="323" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="nhM-Xx-Kvx"/>
+                                </constraints>
+                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGf-Hj-6xv">
+                                <rect key="frame" x="26" y="129" width="323" height="40"/>
+                                <state key="normal" title="Place Call"/>
+                                <connections>
+                                    <action selector="onPlaceCall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ai2-WA-ISl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linphone Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwP-j1-zIm">
+                                <rect key="frame" x="26" y="209" width="323" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arz-ji-B8F">
+                                <rect key="frame" x="26" y="289" width="146.5" height="40"/>
+                                <state key="normal" title="Pick Up"/>
+                                <connections>
+                                    <action selector="onPickCall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JvG-QJ-pCV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oc-Mp-dVd">
+                                <rect key="frame" x="202.5" y="289" width="146.5" height="40"/>
+                                <state key="normal" title="End Call"/>
+                                <connections>
+                                    <action selector="onEndCall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="10L-Ei-uhr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNn-An-4id">
+                                <rect key="frame" x="20" y="587" width="152.5" height="40"/>
+                                <state key="normal" title="Start Linphone"/>
+                                <connections>
+                                    <action selector="onStartLinphone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kaS-2L-EYq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnC-Yv-iya">
+                                <rect key="frame" x="202.5" y="587" width="152.5" height="40"/>
+                                <state key="normal" title="Shut Down"/>
+                                <connections>
+                                    <action selector="onShutDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="136-9i-P4a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NwP-j1-zIm" firstAttribute="trailing" secondItem="GGf-Hj-6xv" secondAttribute="trailing" id="5y7-pJ-iYd"/>
+                            <constraint firstItem="7oc-Mp-dVd" firstAttribute="trailing" secondItem="NwP-j1-zIm" secondAttribute="trailing" id="CcY-yX-OIA"/>
+                            <constraint firstItem="GGf-Hj-6xv" firstAttribute="trailing" secondItem="4I1-jY-WFa" secondAttribute="trailing" id="D3i-i7-X9X"/>
+                            <constraint firstItem="7oc-Mp-dVd" firstAttribute="width" secondItem="Arz-ji-B8F" secondAttribute="width" id="Eul-At-gIL"/>
+                            <constraint firstItem="4I1-jY-WFa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="H3d-iA-cF7"/>
+                            <constraint firstItem="GGf-Hj-6xv" firstAttribute="top" secondItem="4I1-jY-WFa" secondAttribute="bottom" constant="29" id="HbT-TV-HJp"/>
+                            <constraint firstItem="bnC-Yv-iya" firstAttribute="width" secondItem="XNn-An-4id" secondAttribute="width" id="IDB-PU-ilJ"/>
+                            <constraint firstItem="bnC-Yv-iya" firstAttribute="centerY" secondItem="XNn-An-4id" secondAttribute="centerY" id="KWE-5Y-H5G"/>
+                            <constraint firstItem="7oc-Mp-dVd" firstAttribute="centerY" secondItem="Arz-ji-B8F" secondAttribute="centerY" id="MA0-Cf-lBB"/>
+                            <constraint firstItem="7oc-Mp-dVd" firstAttribute="height" secondItem="Arz-ji-B8F" secondAttribute="height" id="NMV-t8-gS7"/>
+                            <constraint firstItem="XNn-An-4id" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="VUi-Gn-ULh"/>
+                            <constraint firstAttribute="trailing" secondItem="bnC-Yv-iya" secondAttribute="trailing" constant="20" id="XjZ-6Y-50b"/>
+                            <constraint firstItem="Arz-ji-B8F" firstAttribute="top" secondItem="NwP-j1-zIm" secondAttribute="bottom" constant="40" id="bIa-hF-a65"/>
+                            <constraint firstItem="Arz-ji-B8F" firstAttribute="leading" secondItem="NwP-j1-zIm" secondAttribute="leading" id="fvs-NV-tHP"/>
+                            <constraint firstItem="NwP-j1-zIm" firstAttribute="height" secondItem="GGf-Hj-6xv" secondAttribute="height" id="g2t-7z-Y0C"/>
+                            <constraint firstItem="bnC-Yv-iya" firstAttribute="leading" secondItem="XNn-An-4id" secondAttribute="trailing" constant="30" id="g33-he-Qmp"/>
+                            <constraint firstItem="GGf-Hj-6xv" firstAttribute="height" secondItem="4I1-jY-WFa" secondAttribute="height" id="h9o-me-tAz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XNn-An-4id" secondAttribute="bottom" constant="40" id="jCZ-hQ-1xq"/>
+                            <constraint firstItem="GGf-Hj-6xv" firstAttribute="leading" secondItem="4I1-jY-WFa" secondAttribute="leading" id="jlr-hx-5v3"/>
+                            <constraint firstItem="4I1-jY-WFa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="lWu-Ho-vUO"/>
+                            <constraint firstItem="bnC-Yv-iya" firstAttribute="height" secondItem="XNn-An-4id" secondAttribute="height" id="lci-De-dkP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4I1-jY-WFa" secondAttribute="trailing" constant="10" id="qhs-sa-TWs"/>
+                            <constraint firstItem="NwP-j1-zIm" firstAttribute="leading" secondItem="GGf-Hj-6xv" secondAttribute="leading" id="qlc-sS-vMy"/>
+                            <constraint firstItem="NwP-j1-zIm" firstAttribute="top" secondItem="GGf-Hj-6xv" secondAttribute="bottom" constant="40" id="vsl-nE-FXD"/>
+                            <constraint firstItem="XNn-An-4id" firstAttribute="height" secondItem="Arz-ji-B8F" secondAttribute="height" id="xeS-eB-XDl"/>
+                            <constraint firstItem="Arz-ji-B8F" firstAttribute="height" secondItem="NwP-j1-zIm" secondAttribute="height" id="xqJ-1a-vrE"/>
+                            <constraint firstItem="7oc-Mp-dVd" firstAttribute="leading" secondItem="Arz-ji-B8F" secondAttribute="trailing" constant="30" id="zZH-vx-EDu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnEndCall" destination="7oc-Mp-dVd" id="1Uu-6u-Pv7"/>
+                        <outlet property="btnPickCall" destination="Arz-ji-B8F" id="wYM-Mm-tmr"/>
+                        <outlet property="btnPlaceCall" destination="GGf-Hj-6xv" id="ui3-nj-ryq"/>
+                        <outlet property="btnShutDown" destination="bnC-Yv-iya" id="A7Z-ry-Qgz"/>
+                        <outlet property="btnStartLinphone" destination="XNn-An-4id" id="t70-Bj-cS7"/>
+                        <outlet property="lblStatus" destination="NwP-j1-zIm" id="fOz-wF-Z0x"/>
+                        <outlet property="txtNumber" destination="4I1-jY-WFa" id="mbW-tI-VXe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

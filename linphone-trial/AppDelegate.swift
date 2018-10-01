@@ -13,14 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var linphoneManager: LinphoneManager?
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        self.linphoneManager = LinphoneManager()
-        linphoneManager?.demo()
-
+//        self.linphoneManager = LinphoneManager()
+//        linphoneManager?.demo()
+        
         return true
     }
 

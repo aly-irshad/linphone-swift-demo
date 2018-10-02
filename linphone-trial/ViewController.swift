@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CallKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
     @IBOutlet weak var txtNumber: UITextField!
     @IBOutlet weak var btnPlaceCall: UIButton!
@@ -21,9 +22,11 @@ class ViewController: UIViewController {
     
     var linphoneManager: LinphoneManager?
     
+    private let callController = CXCallController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         self.lblStatus.text = "Linphone Shut Down"
         
         self.btnPlaceCall.isEnabled = false
@@ -78,7 +81,7 @@ class ViewController: UIViewController {
         }
                 
     }
-
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -139,15 +142,29 @@ class ViewController: UIViewController {
     }
     @IBAction func onStartLinphone(_ sender: Any) {
         
-        _ = LinphoneManager(userName: "9109799432317", password: "password")
-        self.lblStatus.text = "Linphone Started"
+//        _ = LinphoneManager(userName: "9109799432317", password: "password")
+//        self.lblStatus.text = "Linphone Started"
+//
+//        self.btnStartLinphone.isEnabled = false
+//
+//        self.btnPlaceCall.isEnabled = true
+//        self.btnPickCall.isEnabled = true
+//        self.btnEndCall.isEnabled = true
         
-        self.btnStartLinphone.isEnabled = false
+        let handle = "9314291678"
+        let incoming = true
+        let videoEnabled = false
         
-        self.btnPlaceCall.isEnabled = true
-        self.btnPickCall.isEnabled = true
-        self.btnEndCall.isEnabled = true
-        
+        if incoming {
+            let backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
+            DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 1.5) {
+                AppDelegate.shared.displayIncomingCall(uuid: UUID(), handle: handle, hasVideo: videoEnabled) { _ in
+                    UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
+                }
+            }
+        } else {
+            AppDelegate.shared.callManager.startCall(handle: handle, videoEnabled: videoEnabled)
+        }
         
         self.btnShutDown.isEnabled = true
     }

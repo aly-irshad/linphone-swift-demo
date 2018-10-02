@@ -8,6 +8,8 @@
 
 import UIKit
 
+var appDel:AppDelegate!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,12 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var linphoneManager: LinphoneManager?
     
     
+    
+    var providerDelegate: ProviderDelegate!
+    let callManager = CallManager()
+    
+    class var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-//        self.linphoneManager = LinphoneManager()
-//        linphoneManager?.demo()
-        
+        providerDelegate = ProviderDelegate(callManager: callManager)
+        appDel = self
         return true
     }
 
@@ -46,6 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func displayIncomingCall(uuid: UUID, handle: String, hasVideo: Bool = false, completion: ((NSError?) -> Void)?) {
+        providerDelegate.reportIncomingCall(uuid: uuid, handle: handle, hasVideo: hasVideo, completion: completion)
+    }
 
 }
 

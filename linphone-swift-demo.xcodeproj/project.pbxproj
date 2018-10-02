@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40ED10AD2162439900531ECF /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40ED10AC2162439900531ECF /* CallKit.framework */; };
+		40ED10B32162512900531ECF /* ProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ED10B22162512900531ECF /* ProviderDelegate.swift */; };
+		40F74DD921637D710061EF96 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F74DD821637D710061EF96 /* Call.swift */; };
+		40F74DDB21637D860061EF96 /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F74DDA21637D860061EF96 /* CallManager.swift */; };
+		40F74DDD21637E3A0061EF96 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F74DDC21637E3A0061EF96 /* Audio.swift */; };
 		A924DEC21D07A5F80030A438 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A99663E91D070507003B5EEE /* libz.tbd */; };
 		A924DEC81D07AC620030A438 /* linphonerc in Resources */ = {isa = PBXBuildFile; fileRef = A924DEC41D07AC620030A438 /* linphonerc */; };
 		A924DEC91D07AC620030A438 /* linphonerc-factory in Resources */ = {isa = PBXBuildFile; fileRef = A924DEC51D07AC620030A438 /* linphonerc-factory */; };
@@ -84,6 +89,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40ED10A82162432C00531ECF /* linphone-swift-demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "linphone-swift-demo.entitlements"; sourceTree = SOURCE_ROOT; };
+		40ED10AC2162439900531ECF /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
+		40ED10B22162512900531ECF /* ProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderDelegate.swift; sourceTree = "<group>"; };
+		40F74DD821637D710061EF96 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		40F74DDA21637D860061EF96 /* CallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
+		40F74DDC21637E3A0061EF96 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		A924DEC41D07AC620030A438 /* linphonerc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = linphonerc; sourceTree = "<group>"; };
 		A924DEC51D07AC620030A438 /* linphonerc-factory */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "linphonerc-factory"; sourceTree = "<group>"; };
 		A924DECE1D07D4EA0030A438 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -190,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40ED10AD2162439900531ECF /* CallKit.framework in Frameworks */,
 				A924DEC21D07A5F80030A438 /* libz.tbd in Frameworks */,
 				A99663E81D070500003B5EEE /* libsqlite3.tbd in Frameworks */,
 				A99663E61D0704F8003B5EEE /* libresolv.tbd in Frameworks */,
@@ -247,6 +259,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40ED10AB2162439800531ECF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40ED10AC2162439900531ECF /* CallKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A924DEC31D07AC520030A438 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +286,7 @@
 				A99663631D06F877003B5EEE /* linphone-swift-demo */,
 				A99663621D06F877003B5EEE /* Products */,
 				A99663761D06F942003B5EEE /* linphone-swift-demo-Bridging-Header.h */,
+				40ED10AB2162439800531ECF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,6 +301,7 @@
 		A99663631D06F877003B5EEE /* linphone-swift-demo */ = {
 			isa = PBXGroup;
 			children = (
+				40ED10A82162432C00531ECF /* linphone-swift-demo.entitlements */,
 				A9FAC4671D07D6F200E3C8A5 /* View */,
 				A9FAC4661D07D6E200E3C8A5 /* Controller */,
 				A9FAC4691D07D71600E3C8A5 /* Resource */,
@@ -366,8 +388,12 @@
 		A9FAC4661D07D6E200E3C8A5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				40ED10B22162512900531ECF /* ProviderDelegate.swift */,
 				A99663641D06F877003B5EEE /* AppDelegate.swift */,
+				40F74DD821637D710061EF96 /* Call.swift */,
+				40F74DDA21637D860061EF96 /* CallManager.swift */,
 				A99663661D06F877003B5EEE /* ViewController.swift */,
+				40F74DDC21637E3A0061EF96 /* Audio.swift */,
 			);
 			name = Controller;
 			path = ..;
@@ -494,6 +520,14 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 43TSXYRK56;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -549,7 +583,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F74DDD21637E3A0061EF96 /* Audio.swift in Sources */,
+				40ED10B32162512900531ECF /* ProviderDelegate.swift in Sources */,
+				40F74DD921637D710061EF96 /* Call.swift in Sources */,
 				A99663671D06F877003B5EEE /* ViewController.swift in Sources */,
+				40F74DDB21637D860061EF96 /* CallManager.swift in Sources */,
 				A99663651D06F877003B5EEE /* AppDelegate.swift in Sources */,
 				A924DECF1D07D4EA0030A438 /* README.md in Sources */,
 				A996637A1D06FE65003B5EEE /* LinphoneManager.swift in Sources */,
@@ -674,8 +712,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "linphone-swift-demo.entitlements";
 				DEVELOPMENT_TEAM = 43TSXYRK56;
 				INFOPLIST_FILE = "linphone-trial/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -697,8 +737,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "linphone-swift-demo.entitlements";
 				DEVELOPMENT_TEAM = 43TSXYRK56;
 				INFOPLIST_FILE = "linphone-trial/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

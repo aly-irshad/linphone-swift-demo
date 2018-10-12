@@ -24,14 +24,18 @@ class ViewController: UIViewController{
     
     private let callController = CXCallController()
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.lblStatus.text = "Linphone Shut Down"
         
-        self.btnPlaceCall.isEnabled = false
-        self.btnPickCall.isEnabled = false
-        self.btnEndCall.isEnabled = false
+//        self.btnPlaceCall.isEnabled = false
+//        self.btnPickCall.isEnabled = false
+//        self.btnEndCall.isEnabled = false
         
         self.btnShutDown.isEnabled = false
         
@@ -142,29 +146,29 @@ class ViewController: UIViewController{
     }
     @IBAction func onStartLinphone(_ sender: Any) {
         
-//        _ = LinphoneManager(userName: "9109799432317", password: "password")
-//        self.lblStatus.text = "Linphone Started"
-//
-//        self.btnStartLinphone.isEnabled = false
-//
-//        self.btnPlaceCall.isEnabled = true
-//        self.btnPickCall.isEnabled = true
-//        self.btnEndCall.isEnabled = true
+        _ = LinphoneManager(userName: "9109799432317", password: "password")
+        self.lblStatus.text = "Linphone Started"
+
+        self.btnStartLinphone.isEnabled = false
+
+        self.btnPlaceCall.isEnabled = true
+        self.btnPickCall.isEnabled = true
+        self.btnEndCall.isEnabled = true
         
-        let handle = "9314291678"
-        let incoming = true
-        let videoEnabled = false
-        
-        if incoming {
-            let backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
-            DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 1.5) {
-                AppDelegate.shared.displayIncomingCall(uuid: UUID(), handle: handle, hasVideo: videoEnabled) { _ in
-                    UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
-                }
-            }
-        } else {
-            AppDelegate.shared.callManager.startCall(handle: handle, videoEnabled: videoEnabled)
-        }
+//        let handle = "9314291678"
+//        let incoming = true
+//        let videoEnabled = false
+//
+//        if incoming {
+//            let backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
+//            DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 1.5) {
+//                AppDelegate.shared.displayIncomingCall(uuid: UUID(), handle: handle, hasVideo: videoEnabled) { _ in
+//                    UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
+//                }
+//            }
+//        } else {
+//            AppDelegate.shared.callManager.startCall(handle: handle, videoEnabled: videoEnabled)
+//        }
         
         self.btnShutDown.isEnabled = true
     }
